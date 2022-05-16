@@ -295,6 +295,8 @@ window.addEventListener('DOMContentLoaded',()=>{
 		postData(item);
 	});
 
+	
+
 	function postData(form){
 		form.addEventListener('submit',(e)=>{
 			e.preventDefault();
@@ -360,8 +362,11 @@ window.addEventListener('DOMContentLoaded',()=>{
 		},4000);
 	}
 		
+	fetch('http://localhost:3000/posts')
+		.then(data=> data.json())
+		.then(res =>console.log(res));
 
-
-
+// fetch('db.json')
+// 	.then(data=> data.json())
+// 	.then(res => console.log(res));
 	});
-

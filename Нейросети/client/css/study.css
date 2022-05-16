@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.sidebar{
+	height:100vh;
+	display: flex;
+	width: 12%;
+	background-color:#222;
+}
+.header{
+	height:10vh;
+	display: flex;
+	width:100%;
+	background-color: rgb(30, 29, 29);
+}

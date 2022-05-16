@@ -3,7 +3,7 @@
       "quotmark" : false, 
        "maxlen" : 110, 
       "trailing" : true, 
-      "strict" : true, 
+      "strict" : false,  
       "browser" : true,
 	  "curly" : true, 
       "jquery" : true, 

@@ -1,0 +1,129 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.dropdownMenu{
+  background-color: #222;
+  min-width: 200px;
+  min-height:450px;
+  position: relative;
+  display:flex;
+  border-radius:10px 10px 0 0px;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.books {
+  flex-wrap: wrap;
+  min-height:450px;
+  display:flex;
+  width: 25%;
+  border-right: 2px solid rgba(255, 255, 255,0.1);
+}
+.books:nth-child(4){
+  border-right: none;
+}
+
+.box{
+  width: 100%;
+  height: 100%;
+}
+.dropdownMenu h2{
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  position: relative;
+}
+.dropdownMenu a{
+  display: flex; 
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+}
+
+.dropdownMenu a:hover{
+  color: rgb(170, 24, 24);
+}
+.dropdownMenu a:nth-child(1){
+  margin-left: 0px;
+}
+.mainLink{
+  width: 100%;
+  min-height:250px;
+  background-color:#D9EEE1;
+}
+.theme{
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+}
+.theme h1{
+  font-size: 6rem;
+  margin: auto;
+}
+.theme a{
+  padding-top: 3em;
+  margin: auto;
+  text-decoration: none;
+  color:#D9EEE1;
+}
+.coll{
+  color:rgb(142, 200, 213);
+}
+.coll:hover{
+  color:#8da095;
+}
+.sss{
+  background-color: rgb(142, 200, 213);
+}
+.theme a:hover{
+  color:rgb(27, 99, 115);
+}
