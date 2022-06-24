@@ -209,78 +209,258 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 	
 	}
-	new MenuCard("img/tabs/vegy.jpg",
-	"vegy",`Меню "Фитнес"`,`Меню "Фитнес" - это новый подход к приготовлению блюд:
-	 больше свежих овощей и фруктов. Продукт активных и здоровых людей.
-	  Это абсолютно новый продукт с оптимальной ценой и высоким качеством!`,
-    9,
-	'.menu .container'
-	).render();
-	new MenuCard("img/tabs/elite.jpg","elite",
-	`Меню “Премиум”`,`В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!`,
-	24,'.menu .container','menu__item',"big").render();
-	new MenuCard("img/tabs/post.jpg","post",
-		'Меню "Постное"','Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-		15,'.menu .container','menu__item',"big").render();
 
+	// const getResource = async(url) => {
+	// 		const res = await fetch(url);
 
-	class Slider{
-		constructor(scr,alt){
-			this.scr = scr;
-			this.alt = alt;
-		}
-		render(){
-			slide.innerHTML = `<div class="offer__slide">
-                        <img src=${this.scr} alt=${this.alt}>
-                    </div>
-			`;
-		} 
+	// 		if (!res.ok){
+	// 			throw new Error('Could not fetch ' + url + `status` + `: ` + res.status);
+	// 		}
+
+	// 		return await res.json();
+	// }
+
+	// getResource('http://localhost:3000/menu')
+	// .then(data=> {
+	// 	data.forEach(({img,altimg,title,descr,price}) => {
+	// 		new MenuCard(img, altimg, title, descr, price,`.menu .container`).render();
+	// 	})
+	// })
+
+	axios.get('http://localhost:3000/menu')
+	.then(data => {
+		data.data.forEach(({img,altimg,title,descr,price}) => {
+			new MenuCard(img, altimg, title, descr, price,`.menu .container`).render();
+		})
+	})
+//slider
+//111111111111111111111
+	// class Slider{
+	// 	constructor(scr,alt){
+	// 		this.scr = scr;
+	// 		this.alt = alt;
+	// 	}
+	// 	render(){
+	// 		slide.innerHTML = `<div class="offer__slide">
+    //                     <img src=${this.scr} alt=${this.alt}>
+    //                 </div>
+	// 		`;
+	// 	} 
 		
+	// }
+
+
+
+	// 	const slider = document.querySelector('.offer__slider'),
+	// 	sliderPrev = slider.querySelector('.offer__slider-prev'),
+	// 	sliderNext = slider.querySelector('.offer__slider-next'),
+	// 	slide = document.querySelector('.offer__slide'),
+	// 	current = slider.querySelector('#current'),
+	// 	total = slider.querySelector('#total');
+	// 	console.log(allSlides);
+	// 	let currentID = 3;
+	// 	sliderPrev.addEventListener('click', () =>{
+	// 		currentID--;
+	// 		if(currentID <= 0){
+	// 			currentID = allSlides.length;
+	// 		}
+	// 		allSlides[currentID-1].render();
+	// 		console.log(current);
+	// 		current.textContent = getZero(currentID);
+	// 	});
+	// 	sliderNext.addEventListener('click', () =>{
+	// 		currentID++;
+	// 			if(currentID >= allSlides.length+1){
+	// 			currentID = 1;
+	// 		}
+	// 		console.log(current);
+	// 		allSlides[currentID-1].render();
+	// 		current.textContent = getZero(currentID); 
+		
+			
+	// 	});
+		
+		
+	// 	const slide1 = new Slider("img/slider/olive-oil.jpg","oil"),
+	// 		slide2 = new Slider("img/slider/food-12.jpg","food"),
+	// 		slide3 = new Slider("img/slider/paprika.jpg","paprika"),
+	// 		slide4 = new Slider("img/slider/pepper.jpg","pepper");
+	// 	let allSlides = [slide1, slide2, slide3, slide4];
+
+		
+	// 	total.innerHTML = `
+	// 	<span id="total">${allSlides.length}</span>`;
+	// 	slide3.render();
+////222222222222222222222222
+// let slideIndex = 1;
+//     const slides = document.querySelectorAll('.offer__slide'),
+//         prev = document.querySelector('.offer__slider-prev'),
+//         next = document.querySelector('.offer__slider-next'),
+//         total = document.querySelector('#total'),
+//         current = document.querySelector('#current');
+
+//     showSlides(slideIndex);
+
+//     if (slides.length < 10) {
+//         total.textContent = `0${slides.length}`;
+//     } else {
+//         total.textContent = slides.length;
+//     }
+
+//     function showSlides(n) {
+//         if (n > slides.length) {
+//             slideIndex = 1;
+//         }
+//         if (n < 1) {
+//             slideIndex = slides.length;
+//         }
+
+//         slides.forEach((item) => item.style.display = 'none');
+
+//         slides[slideIndex - 1].style.display = 'block'; // Как ваша самостоятельная работа - переписать на использование классов show/hide
+        
+//         if (slides.length < 10) {
+//             current.textContent =  `0${slideIndex}`;
+//         } else {
+//             current.textContent =  slideIndex;
+//         }
+//     }
+
+//     function plusSlides (n) {
+//         showSlides(slideIndex += n);
+//     }
+
+//     prev.addEventListener('click', function(){
+//         plusSlides(-1);
+//     });
+
+//     next.addEventListener('click', function(){
+//         plusSlides(1);
+//     });
+// });
+
+//333333333333333
+    const slides = document.querySelectorAll('.offer__slide'),
+		slider = document.querySelector('.offer__slider'),
+        prev = document.querySelector('.offer__slider-prev'),
+        next = document.querySelector('.offer__slider-next'),
+        total = document.querySelector('#total'),
+        current = document.querySelector('#current'),
+		slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+		slidesFiled = document.querySelector('.offer__slider-inner'),
+		width = window.getComputedStyle(slidesWrapper).width;
+	let slideIndex = 3;
+	let offset = width.slice(0,width.length-2)*(slideIndex-1);
+	slidesFiled.style.transform = `translateX(-${offset}px)`;
+	slidesFiled.style.width = 100 * slides.length + `%`;
+	slidesFiled.style.display = 'flex';
+	slidesFiled.style.transition = '0.5s all';
+	slidesWrapper.style.overflow = 'hidden';
+
+	total.textContent= getZero(slides.length)
+	
+	slides.forEach(slide => {
+		slide.style.width = width;
+	})
+
+	slider.style.position = 'relative';
+
+	const indicator = document.createElement('ol'),
+		  dots =[];
+	indicator.classList.add('carusel-indicators');
+	indicator.style.cssText =`
+		position: absolute;
+    	right: 0;
+    	bottom: 0;
+    	left: 0;
+    	z-index: 15;
+    	display: flex;
+    	justify-content: center;
+    	margin-right: 15%;
+    	margin-left: 15%;
+    	list-style: none;
+	`;
+	slider.append(indicator);
+
+	for(let i =0;i< slides.length;i++){
+		const dot = document.createElement('li');
+		dot.setAttribute('data-slide-to',i+1);
+		dot.style.cssText =  `
+		  box-sizing: content-box;
+    		flex: 0 1 auto;
+    		width: 30px;
+    		height: 6px;
+    		margin-right: 3px;
+    		margin-left: 3px;
+    		cursor: pointer;
+    		background-color: #fff;
+    		background-clip: padding-box;
+    		border-top: 10px solid transparent;
+    		border-bottom: 10px solid transparent;
+    		opacity: .5;
+    		transition: opacity .6s ease;
+		`;
+		if(i==2){
+			dot.style.opacity=1;
+		}
+		indicator.append(dot);
+		dots.push(dot);
 	}
 
-//slider
-
-	// const slider = document.querySelector('.offer__slider'),
-	//   sliderPrev = slider.querySelector('.offer__slider-prev'),
-	//   sliderNext = slider.querySelector('.offer__slider-next'),
-	//   slide = document.querySelector('.offer__slide'),
-	//   current = slider.querySelector('#current'),
-	//   total = slider.querySelector('#total');
-
-	//   let currentID = 3;
-	//   sliderPrev.addEventListener('click', () =>{
-	// 	currentID--;
-	// 	if(currentID <= 0){
-	// 		currentID = allSlides.length;
-	// 	}
-	// 	allSlides[currentID-1].render();
-	// 	console.log(current);
-	// 	current.textContent = getZero(currentID);
-	//   });
-	//   sliderNext.addEventListener('click', () =>{
-	// 	currentID++;
-	// 		if(currentID >= allSlides.length+1){
-	// 		currentID = 1;
-	// 	}
-	// 	console.log(current);
-	// 	allSlides[currentID-1].render();
-	// 	current.textContent = getZero(currentID); 
-	
+	next.addEventListener('click',()=>{
+		if (offset == +width.slice(0,width.length-2)*(slides.length-1)){
+			offset = 0;	
+		} else{
+			offset += +width.slice(0,width.length-2);
+		}
 		
-	//   });
-	
-	// console.log(slider,sliderNext);
-	// const slide1 = new Slider("img/slider/olive-oil.jpg","oil"),
-	// 	 slide2 = new Slider("img/slider/food-12.jpg","food"),
-	// 	 slide3 = new Slider("img/slider/paprika.jpg","paprika"),
-	// 	 slide4 = new Slider("img/slider/pepper.jpg","pepper");
-	// let allSlides = [slide1, slide2, slide3, slide4];
+		if(slideIndex == slides.length){
+			slideIndex = 1;
+		} else{
+			slideIndex ++;
+		}
 
-	  
-	// total.innerHTML = `
-	//   <span id="total">${allSlides.length}</span>`;
-	// slide1.render();
+		current.textContent = getZero(slideIndex);
+		slidesFiled.style.transform = `translateX(-${offset}px)`;
 		
+		dots.forEach(dot =>dot.style.opacity='.5');
+		dots[slideIndex-1].style.opacity =1;
+	})
+	prev.addEventListener('click',()=>{
+		if (offset == 0){
+			offset = +width.slice(0,width.length-2)*(slides.length-1)
+		} else{
+			offset -= +width.slice(0,width.length-2)
+		}
+
+		if(slideIndex == 1){
+			slideIndex = slides.length;
+		} else{
+			slideIndex --;
+		}
+	
+
+		current.textContent = getZero(slideIndex);
+		slidesFiled.style.transform = `translateX(-${offset}px)`;
+
+		dots.forEach(dot =>dot.style.opacity='.5');
+		dots[slideIndex-1].style.opacity =1;
+	})
+	dots.forEach(dot=>{
+		dot.addEventListener('click',(e)=>{
+			const slideTo = e.target.getAttribute('data-slide-to');
+
+			slideIndex = slideTo;
+			offset = +width.slice(0,width.length-2)*(slideTo-1);
+
+			slidesFiled.style.transform = `translateX(-${offset}px)`;
+		
+			current.textContent = getZero(slideIndex);
+
+			dots.forEach(dot =>dot.style.opacity='.5');
+			dots[slideIndex-1].style.opacity =1;
+		})
+	})
 	//Forms
 
 	const forms = document.querySelectorAll('form');
@@ -292,12 +472,21 @@ window.addEventListener('DOMContentLoaded',()=>{
 	};
 
 	forms.forEach(item => {
-		postData(item);
+		bindPostData(item);
 	});
 
+	const postData = async(url, data) => {
+			const res = await fetch(url,{
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body:  data
+			});
+
+			return await res.json();
+	}
 	
 
-	function postData(form){
+	function bindPostData(form){
 		form.addEventListener('submit',(e)=>{
 			e.preventDefault();
 			
@@ -313,22 +502,13 @@ window.addEventListener('DOMContentLoaded',()=>{
 	
 			const formData = new FormData(form);
 
-			const object = {};
-			formData.forEach(function(value,key) {
-				object[key] = value;
-			});
+			const json = JSON.stringify(Object.fromEntries(formData.entries()));
 			
 		
-
-			fetch('server.php',{
-				method: 'POST',
-				headers: {'Content-Type': 'application/json'},
-				body:  JSON.stringify(object)
-			}).then(data => data.text())
+			postData('http://localhost:3000/requests', json)
 			.then(data => {
 				console.log(data);
-				showThanksModal(message.success);
-				
+				showThanksModal(message.success);	
 				statusMessage.remove();
 			}).catch(() => {	
 				showThanksModal(message.failure);
@@ -362,7 +542,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 		},4000);
 	}
 		
-	fetch('http://localhost:3000/posts')
+	fetch('http://localhost:3000/requests')
 		.then(data=> data.json())
 		.then(res =>console.log(res));
 
