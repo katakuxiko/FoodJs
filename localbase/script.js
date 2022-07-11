@@ -1,28 +1,24 @@
 'use strict';
 
-// new RegExp('pattern','flags');
-// /pattern/f 
+const app = "123";
 
-// const ans = prompt('Your number');
+const number = 1;
 
-// const reg = /\d/igm;
-// console.log(reg.test(ans));
-// console.log(ans.match(reg));
+(function (){
+	let number = 2;
+	console.log(number);
+	console.log(number +3);
+}())
 
-const str = 'Ma name is R2D2';
+console.log(number);
 
- console.log(str.match(/\w\d\w\d/i));
- console.log(str.match(/\W/ig));
+const user = (function(){
+	const private = function (){
+		console.log('Private')
+	};
+	return {
+		sayHello: private
+	};
+}());
 
-// \D \W \S
-
-// \d - Цифры \w буквы \s пробелы
-// // i - без регистра g-глобал m - многострочный
-// console.log(ans.match(reg));
-
-// const pass = prompt('Password');
-
-// console.log(pass.replace(/\./g,"*"));
-
-// console.log('12-34-56'.replace(/-/g, ':'));
-
+user.sayHello();
